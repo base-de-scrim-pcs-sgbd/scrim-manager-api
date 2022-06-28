@@ -1,6 +1,6 @@
 import mysql.connector
 
-from manager.models.form_data import FormData
+from models.form_data import FormData
 from models.sql_credentials import SqlCredentials
 
 
