@@ -1,7 +1,7 @@
 import mysql.connector
 
-from models.form_data import FormData
-from models.sql_credentials import SqlCredentials
+from manager.models.form_data import FormData
+from manager.models.sql_credentials import SqlCredentials
 
 
 class Manager:
@@ -62,13 +62,17 @@ class Manager:
         if match:
             try:
                 self._create_scrim(self.team_name, match.team_name, self.scrim_date)
+                self.connection.close()
 
                 return 'Scrim found! Check your scrims page'
             except Exception as err:
+                self.connection.close()
                 print(err)
+
+                return f'Error: {err}'
         else:
             self._create_order(self.team_name, self.team_elo, self.order_elo, self.scrim_date)
+            self.connection.close()
 
             return 'Scrim not found, but we\'ll find a match soon!'
 
-        self.connection.close()

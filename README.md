@@ -7,3 +7,7 @@ Repositório do grupo 3 de PCS-SGBD 2022.1
 [Matheus Lucena](https://github.com/mthlucena)
 
 [Renan Hatherly](https://github.com/renan_ht)
+
+## Run Flask locally
+- $env:FLASK_APP="api"
+- flask run
