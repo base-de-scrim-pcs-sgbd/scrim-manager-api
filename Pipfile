@@ -9,6 +9,7 @@ verify_ssl = true
 Flask = "*"
 pydantic = "*"
 python-dotenv = "*"
+psycopg2-binary = "*"
 
 [requires]
 

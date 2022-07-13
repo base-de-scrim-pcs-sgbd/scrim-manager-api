@@ -2,3 +2,4 @@ flask
 mysql-connector-python
 pydantic
 python-dotenv
+psycopg2-binary
