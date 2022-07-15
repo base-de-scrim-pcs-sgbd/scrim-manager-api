@@ -1,0 +1,11 @@
+{
+  "headers": {
+    "content-type": "application/x-www-form-urlencoded",
+    "upgrade-insecure-requests": "1"
+  },
+  "referrerPolicy": "strict-origin-when-cross-origin",
+  "body": "selectequipe=1&selectelo=1&selectnota=&datahorabusca=",
+  "method": "POST",
+  "mode": "cors",
+  "credentials": "omit"
+});
