@@ -1,17 +1,11 @@
 from manager.models.form_data import FormData
-from manager.models.sql_credentials import SqlCredentials
 from manager.services.postgre_connect import connect
 
 
 class Manager:
 
     def __init__(self,
-                 sql_credentials: SqlCredentials,
                  form_data: FormData):
-        self.sql_user = sql_credentials.username
-        self.sql_password = sql_credentials.password
-        self.sql_host = sql_credentials.host
-        self.sql_database = sql_credentials.database
         self.team_name = form_data.team_name
         self.team_elo = form_data.team_elo
         self.order_elo = form_data.order_elo
