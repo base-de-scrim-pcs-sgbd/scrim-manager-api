@@ -18,9 +18,9 @@ class Manager:
 
     def _find_match(self):
         query = f'SELECT * FROM pedidoscrim WHERE ' \
-                f'eloequipe >= {self.order_elo} AND' \
-                f'elopedido <= {self.team_elo} AND' \
-                f'data = {self.scrim_date}'
+                f'eloequipe >= {self.order_elo} AND ' \
+                f'elopedido <= {self.team_elo} AND ' \
+                f'datapedido = {self.scrim_date}'
 
         cursor = self.connection.cursor()
         cursor.execute(query)
@@ -35,14 +35,14 @@ class Manager:
     def _create_scrim(self, team_one, team_two, scrim_date):
         query = f'INSERT INTO scrim ' \
                 f'(idequipe1, idequipe2, datascrim) ' \
-                f'VALUES ({team_one, team_two, scrim_date})'
+                f'VALUES ({team_one}, {team_two}, {scrim_date})'
 
         self._execute_query(query)
 
     def _create_order(self, team_id, team_elo, order_elo, scrim_date):
         query = f'INSERT INTO pedidoscrim ' \
                 f'(idequipe, eloequipe, elopedido, datapedido) ' \
-                f'VALUES ({team_id, team_elo, order_elo, scrim_date})'
+                f'VALUES ({team_id}, {team_elo}, {order_elo}, {scrim_date})'
 
         self._execute_query(query)
 

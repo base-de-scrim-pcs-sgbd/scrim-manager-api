@@ -1,4 +1,3 @@
-
 from pydantic import BaseModel
 
 
@@ -7,4 +6,4 @@ class FormData(BaseModel):
     team_id: int
     team_elo: int
     order_elo: int
-    scrim_date: str
+    scrim_date: int
