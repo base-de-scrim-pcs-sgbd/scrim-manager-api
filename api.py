@@ -62,7 +62,7 @@ def create_team():
 def display_team():
     try:
         form_get = request.form
-        form_data = FormTeamCreate(team_id=form_get['team_id'])
+        form_data = FormTeamCreate(user_id=form_get['user_id'])
     except Exception:
         print(Exception)
         raise Exception

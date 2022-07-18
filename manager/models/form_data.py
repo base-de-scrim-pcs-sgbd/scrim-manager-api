@@ -6,7 +6,7 @@ class FormTeamCreate(BaseModel):
     team_name: str
     
 class FormTeamDisplay(BaseModel):
-    team_id: str
+    user_id: str
         
 class FormTeamEdit(BaseModel):
     team_id: int
