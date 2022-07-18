@@ -1,11 +1,10 @@
-from manager.models.form_data import FormData
+from manager.models.form_data import FormScrimSearch
 from manager.services.postgre_connect import connect
 
-
-class Manager:
+class ScrimSearch:
 
     def __init__(self,
-                 form_data: FormData):
+                 form_data: FormScrimSearch):
         self.team_id = form_data.team_id
         self.team_name = form_data.team_name
         self.team_elo = form_data.team_elo
