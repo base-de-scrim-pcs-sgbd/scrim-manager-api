@@ -6,7 +6,7 @@ export default function () {
   const url = 'https://base-de-scrim-manager-api.herokuapp.com/scrim-search';
 
   var payload = new FormData();
-  payload.append('user_id', '1');
+  payload.append('team_id', '1');
   payload.append('team_name', 'lala');
   payload.append('team_elo', '8');
   payload.append('order_elo', '1');
