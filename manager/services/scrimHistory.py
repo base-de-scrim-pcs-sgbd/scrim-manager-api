@@ -11,11 +11,12 @@ class ScrimHistory:
         self.connection = connect()
 
     def _display_scrim_history(self):
-        query = f'SELECT idscrim, idequipe ' \
+        today = 1657986217
+        query = f'SELECT * ' \
                 f'FROM scrim AS sc ' \
                 f'INNER JOIN avaliacao AS av ON av.idscrim = sc.idscrim ' \
                 f'WHERE ' \
-                f'sc.datascrim < CURRENT_TIMESTAMP AND ' \
+                f'sc.datascrim < {today} AND ' \
                 f'idequipe = {self.team_id}'
 
         cursor = self.connection.cursor()
@@ -31,7 +32,7 @@ class ScrimHistory:
     def process(self):
         self._connect()
         try:
-            self._display_scrim_history(self.team_id)
+            self._display_scrim_history()
             self.connection.close()
 
             return 'Team history found!'

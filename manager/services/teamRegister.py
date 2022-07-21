@@ -14,18 +14,15 @@ class TeamRegister:
 
     def _create_team(self, user_id, team_name):
         query = f'INSERT INTO equipe ' \
-                f'(nomeequipe, idrepresentante)  ' \
-                f'VALUES ({user_id}, {team_name})'
+                f'(nomeequipe, numeroatletas, eloequipe, idrepresentante) ' \
+                f'VALUES (\'{team_name}\', 0, 0, {user_id})'
 
-        cursor = self.connection.cursor()
-        cursor.execute(query)
+        self._execute_query(query)
 
     def _execute_query(self, query):
         cursor = self.connection.cursor()
         cursor.execute(query)
         self.connection.commit()
-
-        self._execute_query(query)
 
     def process(self):
         self._connect()
