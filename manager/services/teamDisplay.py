@@ -5,7 +5,7 @@ class TeamDisplay:
 
     def __init__(self,
                  form_data: FormTeamDisplay):
-        self.team_id = form_data.team_id
+        self.user_id = form_data.user_id
         self.connection = None
 
     def _connect(self):
@@ -13,7 +13,7 @@ class TeamDisplay:
 
     def _display_team(self, team_id):
         query = f'SELECT * FROM equipe WHERE ' \
-                f'idequipe = {self.team_id}'
+                f'idrepresentante = {self.user_id}'
                 
         cursor = self.connection.cursor()
         cursor.execute(query)
@@ -28,10 +28,10 @@ class TeamDisplay:
     def process(self):
         self._connect()
         try:
-            self._display_team(self.team_id)
+            self._display_team(self.user_id)
             self.connection.close()
 
-            return 'Team found!'
+            return 'Teams found!'
         except Exception as err:
             self.connection.close()
             print(err)

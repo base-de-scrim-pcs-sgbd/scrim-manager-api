@@ -50,7 +50,7 @@ class ScrimSearch:
 
         self._execute_query(query)
 
-    def process(self):
+    def process(self):  # sourcery skip: use-named-expression
         self._connect()
         match = self._find_match()
 
