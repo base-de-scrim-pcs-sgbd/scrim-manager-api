@@ -62,7 +62,8 @@ def create_team():
 def display_team():
     try:
         form_get = request.form
-        form_data = FormTeamDisplay(user_id=form_get['user_id'])
+        form_data = FormTeamDisplay(user_id=form_get['user_id'],
+                                    team_id=form_get['team_id'])
     except Exception:
         print(Exception)
         raise Exception
@@ -77,8 +78,7 @@ def edit_team():
         form_post = request.form
         form_data = FormTeamEdit(team_id=form_post['team_id'],
                                  player_name=form_post['player_name'],
-                                 player_elo=form_post['player_elo'],
-                                )
+                                 player_elo=form_post['player_elo'])
     except Exception:
         print(Exception)
         raise Exception

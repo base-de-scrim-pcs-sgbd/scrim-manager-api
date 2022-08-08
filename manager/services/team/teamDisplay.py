@@ -6,14 +6,16 @@ class TeamDisplay:
     def __init__(self,
                  form_data: FormTeamDisplay):
         self.user_id = form_data.user_id
+        self.team_id = form_data.team_id
         self.connection = None
 
     def _connect(self):
         self.connection = connect()
 
-    def _display_team(self, team_id):
+    def _display_team(self):
         query = f'SELECT * FROM equipe WHERE ' \
-                f'idrepresentante = {self.user_id}'
+                f'idrepresentante = {self.user_id}' \
+                f'AND idequipe = {self.team_id}'
                 
         cursor = self.connection.cursor()
         cursor.execute(query)
@@ -28,7 +30,7 @@ class TeamDisplay:
     def process(self):
         self._connect()
         try:
-            self._display_team(self.user_id)
+            self._display_team()
             self.connection.close()
 
             return 'Teams found!'
