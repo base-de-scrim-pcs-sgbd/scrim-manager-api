@@ -20,6 +20,8 @@ class TeamDisplay:
         cursor = self.connection.cursor()
         cursor.execute(query)
 
+        return cursor.fetchone()
+
     def _execute_query(self, query):
         cursor = self.connection.cursor()
         cursor.execute(query)
@@ -30,10 +32,10 @@ class TeamDisplay:
     def process(self):
         self._connect()
         try:
-            self._display_team()
+            team = self._display_team()
             self.connection.close()
 
-            return 'Teams found!'
+            return f'Team found! : {team}'
         except Exception as err:
             self.connection.close()
             print(err)
