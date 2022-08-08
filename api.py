@@ -19,8 +19,7 @@ app = Flask(__name__)
 def create_user():
     try:
         form_post = request.form
-        form_data = FormUser(user_id=form_post['user_id'],
-                             user_email=form_post['user_email'],
+        form_data = FormUser(user_email=form_post['user_email'],
                              user_password=form_post['user_password'])
     except Exception:
         print(Exception)
