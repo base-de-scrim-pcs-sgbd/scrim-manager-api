@@ -1,14 +1,15 @@
 from flask import Flask, request
 
-from manager.models.form_data import FormScrimHistory, FormScrimScore, FormScrimSearch, FormTeamCreate, FormTeamEdit, FormUser
-from manager.services.userRegister import UserRegister
-from manager.services.userLogin import UserLogin
-from manager.services.teamRegister import TeamRegister
-from manager.services.teamEdit import TeamEdit
-from manager.services.teamDisplay import TeamDisplay
-from manager.services.scrimSearch import ScrimSearch
-from manager.services.scrimHistory import ScrimHistory
-from manager.services.scrimScore import ScrimScore
+from manager.models.form_data import FormScrimHistory, FormScrimScore, FormScrimSearch, FormTeamCreate, FormTeamEdit, \
+    FormUser, FormTeamDisplay
+from manager.services.user.userRegister import UserRegister
+from manager.services.user.userLogin import UserLogin
+from manager.services.team.teamRegister import TeamRegister
+from manager.services.team.teamEdit import TeamEdit
+from manager.services.team.teamDisplay import TeamDisplay
+from manager.services.scrim.scrimSearch import ScrimSearch
+from manager.services.scrim.scrimHistory import ScrimHistory
+from manager.services.scrim.scrimScore import ScrimScore
 
 
 app = Flask(__name__)
@@ -62,7 +63,7 @@ def create_team():
 def display_team():
     try:
         form_get = request.form
-        form_data = FormTeamCreate(user_id=form_get['user_id'])
+        form_data = FormTeamDisplay(user_id=form_get['user_id'])
     except Exception:
         print(Exception)
         raise Exception
